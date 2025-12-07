@@ -393,6 +393,117 @@
   color: var(--secondary);
 }
 
+/* ====== THEME STYLES ====== */
+
+/* IoT 4.0 Theme - Blue/Cyan Tech Colors for Industrial IoT */
+:root {
+  --i40-primary: #0066ff;
+  --i40-secondary: #00d9ff;
+  --i40-accent: #6366f1;
+  --i40-gradient: linear-gradient(135deg, #0066ff, #00d9ff);
+}
+
+.i40-hero {
+  background: linear-gradient(
+    135deg,
+    #0f172a 0%,
+    #1e3a8a 50%,
+    #0f172a 100%
+  );
+}
+
+.i40-badge {
+  background: rgba(0, 102, 255, 0.15);
+  color: var(--i40-secondary);
+  border: 1px solid rgba(0, 217, 255, 0.3);
+}
+
+.i40-card {
+  border-left: 4px solid var(--i40-primary);
+  transition: var(--transition);
+}
+
+.i40-card:hover {
+  box-shadow: 0 20px 60px rgba(0, 102, 255, 0.3);
+}
+
+.i40-icon {
+  background: var(--i40-gradient);
+  color: white;
+}
+
+.i40-section {
+  position: relative;
+}
+
+.i40-section::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(
+    circle,
+    rgba(0, 102, 255, 0.1) 0%,
+    transparent 70%
+  );
+  border-radius: 50%;
+  filter: blur(60px);
+  pointer-events: none;
+  z-index: -1;
+}
+
+/* Manpower/Workforce Theme - Orange/Warm People Colors */
+:root {
+  --workforce-primary: #ff6b35;
+  --workforce-secondary: #f7931e;
+  --workforce-accent: #ff9a56;
+  --workforce-gradient: linear-gradient(135deg, #ff6b35, #f7931e);
+}
+
+.workforce-hero {
+  background: linear-gradient(135deg, #0f172a 0%, #7c2d12 50%, #0f172a 100%);
+}
+
+.workforce-badge {
+  background: rgba(255, 107, 53, 0.15);
+  color: var(--workforce-secondary);
+  border: 1px solid rgba(247, 147, 30, 0.3);
+}
+
+.workforce-card {
+  border-left: 4px solid var(--workforce-primary);
+  transition: var(--transition);
+}
+
+.workforce-card:hover {
+  box-shadow: 0 20px 60px rgba(255, 107, 53, 0.3);
+}
+
+.workforce-icon {
+  background: var(--workforce-gradient);
+  color: white;
+}
+
+.workforce-section {
+  position: relative;
+}
+
+.workforce-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(circle, rgba(255, 107, 53, 0.08) 0%, transparent 70%);
+  border-radius: 50%;
+  filter: blur(60px);
+  pointer-events: none;
+  z-index: -1;
+}
+
 /* Responsive Header/Footer */
 @media (max-width: 992px) {
   .main-navigation {
