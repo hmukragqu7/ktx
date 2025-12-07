@@ -1,0 +1,421 @@
+h1 {
+  font-size: 48px;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+
+h2 {
+  font-size: 36px;
+  font-weight: 700;
+  font-family: "Montserrat", sans-serif;
+  margin-bottom: 10px;
+}
+
+h3 {
+  font-size: 16px;
+  font-weight: 500;
+  margin-bottom: 25px;
+}
+
+h5 {
+  font-size: 18px;
+}
+
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Poppins", sans-serif;
+}
+
+p {
+  font-size: 16px;
+  font-family: "Poppins", sans-serif;
+  color: var(--noi-gray);
+}
+
+body {
+  color: var(--noi-black);
+}
+
+:root {
+  /* NOI Brand Colors */
+  --noi-teal: #014248;
+  --noi-teal-transparent: rgba(1, 66, 72, 0.5);
+  --noi-swiper-nav-btn1: rgba(1, 68, 71, 0.5);
+  --noi-cyan: #39b3ba;
+  --noi-black: #111111;
+  --noi-gray: #4b5563;
+  --noi-white: #f8f8f8;
+  --noi-card-border-radius: 22px;
+  --noi-light-green: #ebf7f8;
+  --noi-swiper-nav-btn2: rgba(58, 180, 186, 0.27);
+}
+
+/* Removes tap highlight on mobile */
+a,
+button {
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Prevents background flash on focus/active */
+a:focus,
+a:active,
+button:focus,
+button:active {
+  /* background: transparent; */
+  outline: none;
+}
+
+.container {
+  max-width: 1440px;
+  padding: 50px 100px;
+  margin: auto;
+}
+
+.font-montserrat {
+  font-family: "Montserrat", sans-serif;
+}
+
+.font-poppins {
+  font-family: "Poppins", sans-serif;
+}
+
+.font-nunito-sans {
+  font-family: "Nunito Sans", "Nunito Sans Placeholder", sans-serif;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.text-right {
+  text-align: right;
+}
+
+.text-left {
+  text-align: left;
+}
+
+.text-justify {
+  text-align: justify;
+}
+
+/* sample button */
+.btn-wrapper {
+  text-align: center;
+  margin-top: 25px;
+}
+
+button {
+  background-color: var(--noi-cyan);
+  color: #fff;
+  font-family: "Nunito Sans", "Nunito Sans Placeholder", sans-serif;
+  font-weight: 700;
+  padding: 12px 24px;
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+/* Swiper UI Global Style Modifications*/
+/* Hide arrows by default */
+.swiper-button-next,
+.swiper-button-prev {
+  opacity: 0 !important;
+  visibility: hidden !important;
+  background-color: var(--noi-swiper-nav-btn1) !important;
+  border-radius: 50% !important;
+  width: 40px !important;
+  color: white !important;
+  height: 40px !important;
+  transition: opacity 0.3s ease, visibility 0.3s ease !important;
+}
+
+.swiper-button-next,
+.swiper-button-prev {
+  top: 45% !important;
+}
+
+
+/* Show arrows smoothly when hovering over the whole swiper */
+.swiper:hover .swiper-button-next,
+.swiper:hover .swiper-button-prev {
+  opacity: 1 !important;
+  visibility: visible !important;
+}
+
+.swiper-button-next:after,
+.swiper-button-prev:after {
+  font-size: 12px !important;
+  font-weight: 600 !important;
+}
+
+/* Always keep pagination dots below the slide */
+.swiper-pagination {
+  position: relative !important;
+  margin-top: 35px;
+}
+
+.swiper-pagination-bullet {
+  background-color: var(--noi-teal-transparent) !important;
+  opacity: 1 !important;
+}
+
+.swiper-pagination-bullet-active {
+  background-color: var(--noi-teal) !important;
+  opacity: 1 !important;
+}
+
+.swiper-pagination-bullet,
+.swiper-pagination-bullet-active {
+  width: 10px !important;
+  height: 10px !important;
+  border-radius: 50% !important;
+}
+
+.swiper-slide {
+  position: relative;
+}
+
+/* Stars Styles */
+
+.star-rating {
+  --percent: calc(var(--rating) / 5 * 100%);
+  display: inline-block;
+  font-size: 20px;
+  font-family: Times;
+  /* or any font with ★ */
+  line-height: 1.5;
+}
+
+.star-rating::before {
+  content: "⭐⭐⭐⭐⭐";
+  letter-spacing: 3px;
+  background: linear-gradient(90deg, #F2C504 var(--percent), #ccc var(--percent));
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.reviewer-name {
+  font-weight: 600;
+  color: var(--noi-black);
+}
+
+@media (hover: hover) {
+
+  /* For Desktop / mouse users, navigation arrows will be shown on hover */
+  .swiper:hover .swiper-button-next,
+  .swiper:hover .swiper-button-prev {
+    opacity: 1 !important;
+    visibility: visible !important;
+  }
+}
+
+@media (hover: none) {
+
+  /* In touch devices (phones, tablets, touchscreen laptops), navigation arrows will always be visible */
+  .swiper-button-next,
+  .swiper-button-prev {
+    opacity: 1 !important;
+    visibility: visible !important;
+  }
+}
+
+/* Tablet Responsiveness */
+
+@media only screen and (max-width: 976px) {
+  h1 {
+    font-size: 28px;
+    line-height: 1.3;
+  }
+
+  h2 {
+    font-size: 34px;
+    line-height: 1.3;
+  }
+
+  h3 {
+    font-size: 14px;
+    max-width: 1300px;
+  }
+
+  h5 {
+    font-size: 16px;
+  }
+
+  p {
+    font-size: 14px;
+  }
+
+  .container {
+    padding: 40px 50px;
+  }
+
+}
+
+/* Mobile Responsiveness */
+
+@media only screen and (max-width: 768px) {
+  h2 {
+    font-size: 22px;
+    line-height: 1.3;
+  }
+
+  h3 {
+    font-size: 12px;
+    line-height: 1.3;
+    max-width: 1300px;
+  }
+
+  h5 {
+    font-size: 14px;
+  }
+
+  p {
+    font-size: 12px;
+  }
+
+  .container {
+    padding: 20px;
+  }
+
+  .swiper-button-next,
+  .swiper-button-prev,
+  .swiper:hover .swiper-button-next,
+  .swiper:hover .swiper-button-prev {
+    opacity: 0 !important;
+    visibility: hidden !important;
+  }
+}
+
+
+/* ============== View Button ==================== */
+
+.view-btn {
+  display: inline-flex;
+  font-family: "Poppins", sans-serif;
+  align-items: center;
+  gap: 6px;
+  pointer-events: auto;
+  color: var(--noi-white);
+  text-decoration: none;
+  font-weight: 500;
+  border-radius: 6px;
+  transition: background 0.3s ease;
+}
+
+/*================= Wave Button ================== */
+
+.wave-btn {
+  position: relative;
+  display: inline-block;
+  padding: 10px 30px;
+  border: none;
+  border-radius: 25px;
+  background: var(--noi-cyan);
+  color: var(--noi-white);
+  font-size: 18px;
+  font-weight: 600;
+  cursor: pointer;
+  overflow: hidden;
+}
+
+.wave-btn__label {
+  position: relative;
+  z-index: 10;
+  color: #ffffff;
+}
+
+.wave-btn__circles {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.wave-btn__circle {
+  position: absolute;
+  bottom: -80px;
+  /* start below button */
+  left: 50%;
+  width: 130px;
+  height: 90px;
+  border-radius: 50%;
+  transform: translateX(-50%) scale(0);
+  opacity: 0;
+}
+
+.wave-btn__circle:nth-child(1) {
+  background: #27ACB3;
+  z-index: 1;
+}
+
+.wave-btn__circle:nth-child(2) {
+  background: #1D8891;
+  z-index: 2;
+}
+
+.wave-btn__circle:nth-child(3) {
+  background: #0B5E66;
+  z-index: 3;
+}
+
+.wave-btn__circle:nth-child(4) {
+  background: #094247;
+  z-index: 4;
+}
+
+.wave-btn__circle:nth-child(5) {
+  background: #073438;
+  z-index: 5;
+}
+
+/* White Button Variant */
+.wave-btn.white {
+  border: 1px solid var(--noi-cyan);
+  background: var(--noi-white);
+  color: var(--noi-cyan);
+}
+
+.wave-btn.white .wave-btn__label {
+  font-size: 16px;
+  color: var(--noi-teal);
+}
+
+.wave-btn.white:hover .wave-btn__label {
+  color: var(--noi-white);
+}
+
+.phone-icon {
+  display: inline-block;
+  vertical-align: middle;
+  margin-right: 8px;
+}
+
+
+@media (max-width: 768px) {
+  .wave-btn {
+    padding: 10px 32px;
+    font-size: 14px;
+  }
+
+.nav-item .wave-btn{
+  margin-top: 30px;
+}
+}
+
+@media (max-width: 976px) {
+  .wave-btn {
+    padding: 10px 40px;
+    font-size: 16px;
+  }
+
+
+
+}
+
+
+

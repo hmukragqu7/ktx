@@ -1,0 +1,67 @@
+    section.lookInside {
+        text-align: center;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .lookInside__wrapper {
+      overflow: hidden;
+      max-width: 100%;
+    }
+
+    .lookInside__track {
+      display: flex;
+      gap: 20px;
+      will-change: transform;
+    }
+
+    .lookInside__card {
+      flex: 0 0 auto;
+      background: var(--noi-white);
+      border-radius: 16px;
+      overflow: hidden;
+    }
+
+    .lookInside__card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .lookInside button {
+      margin-top: 40px;
+      background-color: var(--noi-cyan);
+      border: none;
+      padding: 12px 30px;
+      color: var(--noi-white);
+      border-radius: 30px;
+      cursor: pointer;
+      transition: 0.3s ease;
+    }
+
+    .lookInside button:hover {
+      background-color: var(--noi-cyan);
+    }
+
+    /* ========== RESPONSIVE SQUARE CARD SIZES ========== */
+    @media (min-width: 977px) {
+      .lookInside__card {
+        width: 450px;
+        height: 450px;
+      }
+    }
+
+    @media (max-width: 976px) and (min-width: 769px) {
+      .lookInside__card {
+        width: 350px;
+        height: 400px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .lookInside__card {
+        width: 300px;
+        height: 300px;
+      }
+    }
