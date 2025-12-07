@@ -341,37 +341,72 @@ function initFormValidation() {
                 submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
                 submitBtn.disabled = true;
                 
-                // Simulate API call
-                setTimeout(() => {
-                    // Show success message
-                    const successMessage = document.createElement('div');
-                    successMessage.className = 'alert alert-success';
-                    successMessage.style.background = '#d4edda';
-                    successMessage.style.color = '#155724';
-                    successMessage.style.padding = '15px';
-                    successMessage.style.borderRadius = '4px';
-                    successMessage.style.margin = '20px 0';
-                    successMessage.style.border = '1px solid #c3e6cb';
-                    successMessage.innerHTML = `
-                        <i class="fas fa-check-circle"></i>
-                        <strong>Thank you, ${data.name}!</strong>
-                        <p>Your message has been received. We'll contact you at ${data.email} within 24 hours.</p>
+                // Send to Formspree (emails will go to avvinod@koushalyatantra.in)
+                fetch('https://formspree.io/f/xpwrvlrw', {
+                    method: 'POST',
+                    body: formData,
+                    headers: {
+                        'Accept': 'application/json'
+                    }
+                })
+                .then(response => {
+                    if (response.ok) {
+                        // Show success message
+                        const successMessage = document.createElement('div');
+                        successMessage.className = 'alert alert-success';
+                        successMessage.style.background = '#d4edda';
+                        successMessage.style.color = '#155724';
+                        successMessage.style.padding = '15px';
+                        successMessage.style.borderRadius = '4px';
+                        successMessage.style.margin = '20px 0';
+                        successMessage.style.border = '1px solid #c3e6cb';
+                        successMessage.innerHTML = `
+                            <i class="fas fa-check-circle"></i>
+                            <strong>Thank you, ${data.name}!</strong>
+                            <p>Your message has been sent successfully. We'll contact you at ${data.email} within 24 hours.</p>
+                        `;
+                        
+                        contactForm.parentNode.insertBefore(successMessage, contactForm);
+                        
+                        // Reset form
+                        contactForm.reset();
+                        
+                        // Remove success message after 5 seconds
+                        setTimeout(() => {
+                            successMessage.remove();
+                        }, 5000);
+                    } else {
+                        throw new Error('Form submission failed');
+                    }
+                })
+                .catch(error => {
+                    // Show error message
+                    const errorMessage = document.createElement('div');
+                    errorMessage.className = 'alert alert-error';
+                    errorMessage.style.background = '#f8d7da';
+                    errorMessage.style.color = '#721c24';
+                    errorMessage.style.padding = '15px';
+                    errorMessage.style.borderRadius = '4px';
+                    errorMessage.style.margin = '20px 0';
+                    errorMessage.style.border = '1px solid #f5c6cb';
+                    errorMessage.innerHTML = `
+                        <i class="fas fa-exclamation-circle"></i>
+                        <strong>Oops! Something went wrong.</strong>
+                        <p>Please try again or contact us directly at adeshkvn@gmail.com</p>
                     `;
                     
-                    contactForm.parentNode.insertBefore(successMessage, contactForm);
+                    contactForm.parentNode.insertBefore(errorMessage, contactForm);
                     
-                    // Reset form
-                    contactForm.reset();
-                    
+                    // Remove error message after 5 seconds
+                    setTimeout(() => {
+                        errorMessage.remove();
+                    }, 5000);
+                })
+                .finally(() => {
                     // Reset button
                     submitBtn.innerHTML = originalText;
                     submitBtn.disabled = false;
-                    
-                    // Remove success message after 5 seconds
-                    setTimeout(() => {
-                        successMessage.remove();
-                    }, 5000);
-                }, 1500);
+                });
             }
         });
         
