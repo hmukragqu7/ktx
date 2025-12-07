@@ -341,8 +341,8 @@ function initFormValidation() {
                 submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
                 submitBtn.disabled = true;
                 
-                // Send to Formspree (emails will go to avvinod@koushalyatantra.in)
-                fetch('https://formspree.io/f/xpwrvlrw', {
+                // Send to Web3Forms (emails will go to adeshkvn@gmail.com)
+                fetch('https://api.web3forms.com/submit', {
                     method: 'POST',
                     body: formData,
                     headers: {
