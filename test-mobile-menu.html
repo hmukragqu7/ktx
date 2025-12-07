@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mobile Menu Test</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="/ktx/css/components.css">
+    <link rel="stylesheet" href="/ktx/css/style.css">
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+        .test-info {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: #000;
+            color: #fff;
+            padding: 15px;
+            border-radius: 8px;
+            z-index: 10000;
+            font-size: 12px;
+        }
+        .test-info button {
+            background: #2563eb;
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <div data-header></div>
+    
+    <main style="padding: 100px 20px;">
+        <h1>Mobile Menu Test Page</h1>
+        <p>Resize your browser to mobile width (< 992px) and click the hamburger menu.</p>
+        <p>Check the console (F12) for debug messages.</p>
+    </main>
+    
+    <!-- Footer -->
+    <div data-footer></div>
+    
+    <div class="test-info">
+        <strong>Debug Info:</strong><br>
+        <span id="status">Loading...</span>
+        <br>
+        <button onclick="toggleMenuManually()">Force Toggle Menu</button>
+    </div>
+    
+    <script src="/ktx/js/main.js"></script>
+    <script>
+        function updateStatus() {
+            const mobileToggle = document.querySelector('.mobile-toggle');
+            const mainNav = document.querySelector('.main-navigation');
+            const statusEl = document.getElementById('status');
+            
+            if (!mobileToggle || !mainNav) {
+                statusEl.innerHTML = '❌ Elements not found yet...';
+                setTimeout(updateStatus, 100);
+                return;
+            }
+            
+            const isActive = mainNav.classList.contains('active');
+            statusEl.innerHTML = `
+                ✅ Elements found<br>
+                Menu: ${isActive ? '🟢 OPEN' : '🔴 CLOSED'}<br>
+                Width: ${window.innerWidth}px
+            `;
+        }
+        
+        function toggleMenuManually() {
+            const mainNav = document.querySelector('.main-navigation');
+            if (mainNav) {
+                mainNav.classList.toggle('active');
+                console.log('Manually toggled menu');
+                updateStatus();
+            }
+        }
+        
+        // Update status every second
+        setInterval(updateStatus, 1000);
+        setTimeout(updateStatus, 500);
+    </script>
+</body>
+</html>
